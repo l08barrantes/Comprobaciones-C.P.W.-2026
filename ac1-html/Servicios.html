@@ -2,56 +2,134 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce los servicios de catering, eventos y clases de cocina que ofrece Sabores del Barrio.">
+    <meta name="keywords" content="Sabores del Barrio, servicios, catering, eventos, reservaciones, clases de cocina">
     <meta name="author" content="Liam Barrantes">
-    <title>Servicios</title>
-</head>
-<body>
-    <h1>Sabores del Barrio</h1>
-    <p>Conoce un poco de nuestros servicios que harán que quieras volver.</p>
-    <p>Disfruta de los sabores auténticos de nuestra cocina regional.</p>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Servicios.html">Servicios</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
 
-  <hr><br>
-    <!--lista anidada, usada en menús y submenús-->
-    </h2>Nuestros Servicios</h2>
-    <!--emmet: ul>li*6>ul>li*2-->
-        <ul>
-            <li>Servicios de Catering</li>
+    <title>Servicios | Sabores del Barrio</title>
+    <link rel="icon" href="recursos/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Encabezado y navegación del sitio -->
+    <header id="inicio">
+        <h1>Sabores del Barrio</h1>
+        <p>Conoce un poco de nuestros servicios que harán que quieras volver.</p>
+        <p>Disfruta de los sabores auténticos de nuestra cocina regional.</p>
+        <nav>
             <ul>
-                <li>Servicio para Bodas</li>
-                <li>Servicio para Cumpleaños</li>
-                <li>Servicio para Eventos corporativos</li>
-                <li>Servicio para Fiestas privadas</li>
-                <li>Servicio para Graduaciones</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
-            <li>Eventos especiales</li>
-            <li>Reservaciones</li> 
-            <li>Clases de cocina</li>
-        </ul>
-    </li>
-</ul>
-    <br />
-    <hr />
-     <div class="slide-container" id="slide9">
-        <div class="content-area title-layout">
-            <h2 class="slide-title">¡Reserva tu Lugar!</h2>
-            <p class="subtitle-large">Te esperamos con los brazos abiertos</p>
-            <div class="quote-box">
-                <p><i class="reserva"></i> reservas@saboresdelbarrio.com | <i class="reserva"></i> +506 8000-0000</p>
-            </div>
-        </div>
-    </div>
-    <!--Footer: Pie, créditos, contacto, derechos-->
-      <p>
-        © 2026 Sabores del Barrio. Todos los derechos
-        reservados
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido">
+        <article>
+            <h2>Nuestros Servicios</h2>
+
+            <section id="servicios-ofrecidos">
+                <h3>Servicios que ofrecemos</h3>
+                <p>Ofrecemos una amplia variedad de opciones gastronómicas para tus eventos y actividades especiales:</p>
+                
+                <!-- Lista anidada-->
+                <ul>
+                    <li>
+                        Servicios de Catering
+                        <ul>
+                            <li>Servicio para Bodas</li>
+                            <li>Servicio para Cumpleaños</li>
+                            <li>Servicio para Eventos corporativos</li>
+                            <li>Servicio para Fiestas privadas</li>
+                            <li>Servicio para Graduaciones</li>
+                        </ul>
+                    </li>
+                    <li>Eventos especiales</li>
+                    <li>Reservaciones</li> 
+                    <li>Clases de cocina</li>
+                </ul>
+            </section>
+
+            <section id="beneficios">
+                <h3>Beneficios que ofrecemos</h3>
+                <p>En Sabores del Barrio, nos comprometemos a brindar una experiencia gastronómica excepcional.</p>
+                <ol>
+                    <li>Atención personalizada: Adaptamos cada menú según los requerimientos de tu evento.</li>
+                    <li>Ingredientes de calidad: Utilizados directamente de productores locales para garantizar frescura.</li>
+                    <li>Experiencia garantizada: Nuestro equipo culinario cuenta con amplia experiencia en la cocina tradicional.</li>
+                </ol>
+            </section>
+
+            <!-- Sección de tabla de precios y paquetes -->
+            <section id="paquetes">
+                <h3>Paquetes y Precios de Servicios</h3>
+                <table border="1"> 
+                    <caption>Tabla de tarifas de servicios</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Servicio</th>
+                            <th scope="col">Duración / Cobertura</th>
+                            <th scope="col">Precio Base</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Catering para Bodas</td>
+                            <td>Evento completo</td>
+                            <td>$500</td>
+                            <td>Menú tradicional de 3 tiempos con bebidas regionales incluidas.</td>
+                        </tr>
+                        <tr>
+                            <td>Catering Corporativo</td>
+                            <td>Medio día</td>
+                            <td>$300</td>
+                            <td>Servicio de refrigerios y platillos típicos para reuniones de trabajo.</td>
+                        </tr>
+                        <tr>
+                            <td>Clases de Cocina Tradicional</td>
+                            <td>2 meses</td>
+                            <td>$150</td>
+                            <td>Aprende las técnicas ancestrales y recetas tradicionales paso a paso.</td>
+                        </tr>
+                        <tr>
+                            <td>Reserva de Salón Principal</td>
+                            <td>4 horas</td>
+                            <td>$200</td>
+                            <td>Uso exclusivo del salón de eventos para celebraciones privadas.</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Los precios están sujetos a cambios y cotizaciones personalizadas. Contáctanos para más información.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </article>
+    </main>
+
+    <!-- Sección de reserva y contacto directo -->
+    <aside id="reservas">
+        <h3>¡Reserva tu Lugar!</h3>
+        <p>Te esperamos con los brazos abiertos.</p>
+        <address>
+            <p>Email: <a href="mailto:reservas@saboresdelbarrio.com">reservas@saboresdelbarrio.com</a> | Teléfono: +506 8000-0000</p>
+        </address>
+    </aside>
+
+    <p><a href="#inicio">Volver al inicio</a></p>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>
+            <small>&copy; 2026 Sabores del Barrio. <strong>Todos los derechos reservados.</strong></small>
         </p>
+        <p><small>Desarrollado por: Liam Barrantes</small></p>
+    </footer>
 </body>
 </html>
