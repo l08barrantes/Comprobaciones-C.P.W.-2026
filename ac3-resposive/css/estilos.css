@@ -2,18 +2,9 @@
    CASA TOMILLO · HOJA DE ESTILOS
    Escuela de cocina · San José, Costa Rica
 
-   Esta hoja usa un enfoque "de escritorio hacia abajo": primero se define
-   el diseño para pantallas grandes, y luego, al final del archivo, dos
-   bloques de @media van ajustando ese mismo diseño para tabletas y para
-   celulares. Los puntos de quiebre elegidos son:
-
-     - Tableta  (ancho de pantalla igual o menor a 900px)
-     - Celular  (ancho de pantalla igual o menor a 600px)
-
-   Regla general aplicada en todo el archivo: los anchos fijos en píxeles
-   (width: 1180px, width: 720px, etc.) se cambiaron por max-width, para
-   que el elemento pueda encogerse en pantallas angostas en vez de
-   desbordarse y generar scroll horizontal.
+   Esta hoja produce un sitio que se ve correctamente en un monitor de
+   escritorio. Fue escrita antes de que el proyecto contemplara el uso
+   desde teléfonos.
    ═══════════════════════════════════════════════════════════════════════ */
 
 
@@ -130,7 +121,7 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  max-width: 1180px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 18px 30px;
   background-color: var(--blanco);
@@ -185,6 +176,7 @@ img {
 .menu-enlace.activo { color: var(--terracota); }
 
 
+/* ─── MENÚ HAMBURGUESA ────────────────────── */
 .menu-interruptor {
   position: absolute;
   opacity: 0;
@@ -197,8 +189,8 @@ img {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   padding: 0;
   border: none;
   border-radius: var(--radio);
@@ -207,16 +199,17 @@ img {
   cursor: pointer;
 }
 
+.boton-menu:hover { background-color: var(--crema-alt); }
 
-
-
-.menu-interruptor:focus-visible {
+.menu-interruptor:focus-visible + .boton-menu {
   outline: 2px solid var(--terracota);
   outline-offset: 2px;
 }
 
 .icono-cerrar { display: none; }
 
+.menu-interruptor:checked ~ .boton-menu .icono-abrir  { display: none; }
+.menu-interruptor:checked ~ .boton-menu .icono-cerrar { display: block; }
 
 
 /* ─── PORTADA ────────────────────────────────────────────────────────── */
@@ -376,10 +369,6 @@ img {
 
 
 /* ─── TABLA ──────────────────────────────────────────────────────────── */
-/* .tabla-envoltorio permite que, si la tabla no cabe en una pantalla
-   angosta, aparezca scroll horizontal SOLO dentro de la tabla, en vez de
-   empujar y desbordar el resto de la página. Ver marcado sugerido más
-   abajo si el HTML aún no tiene este contenedor. */
 .tabla-envoltorio {
   width: 100%;
   overflow-x: auto;
@@ -667,26 +656,11 @@ img {
   margin-bottom: 0;
 }
 
-
-/* ═══════════════════════════════════════════════════════════════════════
-   MENÚ HAMBURGUESA
-   Se activa en pantallas de 700px de ancho o menos, un punto de quiebre
-   propio para la navegación (independiente de los de tableta y celular
-   usados más abajo para el resto del contenido).
-   ═══════════════════════════════════════════════════════════════════════ */
 @media (max-width: 700px) {
 
-  /* Se necesita "position: relative" para que el menú desplegable
-     (con position: absolute) se ubique justo debajo de la cabecera */
   .cabecera { position: relative; }
-
-  /* El botón hamburguesa se muestra solo en este rango de pantalla */
   .boton-menu { display: flex; }
-
-  /* El menú horizontal se convierte en un panel desplegable:
-     queda oculto hasta que se hace clic en el botón */
   .navegacion { width: auto; }
-
   .menu {
     display: none;
     position: absolute;
@@ -703,61 +677,42 @@ img {
     padding: 10px;
     z-index: 20;
   }
-
-  /* Se muestra el menú cuando el checkbox oculto está marcado */
+ 
   .menu-interruptor:checked ~ .navegacion .menu { display: flex; }
 
   .menu-enlace { display: block; text-align: left; padding: 12px 14px; }
 }
 
-
-/* ═══════════════════════════════════════════════════════════════════════
-   ADAPTACIÓN PARA TABLETA
-   Se activa en pantallas de 900px de ancho o menos.
-   ═══════════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
 
-  /* Los títulos grandes ocupan demasiado espacio en pantallas medianas */
   h1 { font-size: 40px; }
   h2 { font-size: 28px; }
 
-  /* Menos espacio vertical en las secciones, para no alargar tanto la página */
   .seccion,
   .pagina-encabezado {
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
-  /* La franja de texto bajo el título de sección puede usar todo el ancho */
   .seccion-entrada { max-width: 100%; }
 
-  /* La portada baja de altura y el recuadro de texto usa el ancho disponible */
   .portada { height: 460px; }
   .portada-caja { padding: 32px; }
 
-  /* Las tres tarjetas de propuestas pasan a mostrarse de a dos por fila */
   .tarjeta { flex: 1 1 45%; }
 
-  /* La galería de fotos pasa de 4 a 2 columnas */
   .rejilla-galeria {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
-  /* La cita puede usar todo el ancho disponible, con menos relleno */
   .cita {
     max-width: 100%;
     padding: 32px;
   }
 
-  /* El pie de página reduce el espacio superior */
   .pie { padding-top: 50px; }
 }
 
-
-/* ═══════════════════════════════════════════════════════════════════════
-   ADAPTACIÓN PARA CELULAR
-   Se activa en pantallas de 600px de ancho o menos.
-   ═══════════════════════════════════════════════════════════════════════ */
 @media (max-width: 600px) {
 
   body { font-size: 16px; }
@@ -768,8 +723,6 @@ img {
 
   .cabecera { padding: 14px 20px; }
 
-  /* Las secciones usan un margen lateral más angosto, para no desperdiciar
-     espacio útil en una pantalla pequeña */
   .seccion,
   .seccion-alterna > *,
   .pagina-encabezado,
@@ -784,14 +737,11 @@ img {
     padding-bottom: 44px;
   }
 
-  /* La portada baja aún más de altura y el texto se ajusta con menos relleno */
   .portada { height: auto; padding: 60px 20px; }
   .portada-caja { padding: 24px; }
   .portada-titulo { font-size: 30px; }
   .portada-bajada { font-size: 17px; }
 
-  /* Las tarjetas de propuestas, la galería y el bloque de dos columnas
-     pasan a una sola columna, apiladas de arriba hacia abajo */
   .fila-propuestas,
   .dos-columnas,
   .pie-columnas {
@@ -808,26 +758,22 @@ img {
 
   .rejilla-galeria { grid-template-columns: 1fr; }
 
-  /* El índice interno de "En esta página" apila sus enlaces */
+
   .indice-lista { flex-direction: column; gap: 10px; }
 
-  /* La cita reduce su tamaño de letra y relleno */
+
   .cita { padding: 22px; }
   .cita-texto { font-size: 19px; }
 
-  /* El formulario ocupa todo el ancho disponible */
   .formulario { max-width: 100%; }
+
   .grupo { padding: 18px; }
 
-  /* Los botones "Enviar solicitud" y "Limpiar" se apilan uno sobre otro
-     y ocupan todo el ancho, para que sean más fáciles de tocar */
   .fila-botones {
     flex-direction: column;
     align-items: stretch;
   }
-
   .boton { text-align: center; width: 100%; }
 
-  /* El pie de página reduce su relleno superior */
   .pie { padding-top: 40px; margin-top: 50px; }
 }
