@@ -185,6 +185,40 @@ img {
 .menu-enlace.activo { color: var(--terracota); }
 
 
+.menu-interruptor {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.boton-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radio);
+  background-color: transparent;
+  color: var(--verde);
+  cursor: pointer;
+}
+
+
+
+
+.menu-interruptor:focus-visible {
+  outline: 2px solid var(--terracota);
+  outline-offset: 2px;
+}
+
+.icono-cerrar { display: none; }
+
+
+
 /* ─── PORTADA ────────────────────────────────────────────────────────── */
 .portada {
   background-color: var(--verde);
@@ -635,6 +669,49 @@ img {
 
 
 /* ═══════════════════════════════════════════════════════════════════════
+   MENÚ HAMBURGUESA
+   Se activa en pantallas de 700px de ancho o menos, un punto de quiebre
+   propio para la navegación (independiente de los de tableta y celular
+   usados más abajo para el resto del contenido).
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+
+  /* Se necesita "position: relative" para que el menú desplegable
+     (con position: absolute) se ubique justo debajo de la cabecera */
+  .cabecera { position: relative; }
+
+  /* El botón hamburguesa se muestra solo en este rango de pantalla */
+  .boton-menu { display: flex; }
+
+  /* El menú horizontal se convierte en un panel desplegable:
+     queda oculto hasta que se hace clic en el botón */
+  .navegacion { width: auto; }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    background-color: var(--blanco);
+    border: 1px solid var(--linea);
+    border-top: none;
+    border-radius: 0 0 var(--radio) var(--radio);
+    box-shadow: var(--sombra);
+    padding: 10px;
+    z-index: 20;
+  }
+
+  /* Se muestra el menú cuando el checkbox oculto está marcado */
+  .menu-interruptor:checked ~ .navegacion .menu { display: flex; }
+
+  .menu-enlace { display: block; text-align: left; padding: 12px 14px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
    ADAPTACIÓN PARA TABLETA
    Se activa en pantallas de 900px de ancho o menos.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -689,24 +766,7 @@ img {
   h2 { font-size: 24px; }
   h3 { font-size: 19px; }
 
-  /* La cabecera pasa a dos filas: el logo arriba, el menú abajo,
-     ambos centrados y con menos separación entre los enlaces */
-  .cabecera {
-    justify-content: center;
-    text-align: center;
-    padding: 16px 20px;
-  }
-
-  .navegacion { width: 100%; justify-content: center; }
-
-  .menu {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .menu-enlace { padding: 8px 12px; }
+  .cabecera { padding: 14px 20px; }
 
   /* Las secciones usan un margen lateral más angosto, para no desperdiciar
      espacio útil en una pantalla pequeña */
@@ -770,215 +830,4 @@ img {
 
   /* El pie de página reduce su relleno superior */
   .pie { padding-top: 40px; margin-top: 50px; }
-}
-
-/* ─── LISTAS ─────────────────────────────────────────────────────────── */
-.lista-temario,
-.lista-requisitos,
-.lista-horario {
-  padding-left: 26px;
-  margin-bottom: 18px;
-}
-
-.lista-temario li,
-.lista-requisitos li,
-.lista-horario li { margin-bottom: 8px; }
-
-.lista-temario ul { padding-left: 26px; margin-top: 8px; }
-
-.glosario-termino {
-  font-weight: 700;
-  color: var(--verde);
-  margin-top: 16px;
-}
-
-.glosario-definicion {
-  margin-left: 26px;
-  color: var(--suave);
-}
-
-.aviso-taller {
-  background-color: var(--crema-alt);
-  border-left: 4px solid var(--terracota);
-  padding: 16px;
-  border-radius: 0 var(--radio) var(--radio) 0;
-}
-
-.direccion {
-  font-style: normal;
-  color: var(--suave);
-  line-height: 1.9;
-  margin-bottom: 18px;
-}
-
-
-/* ─── FORMULARIO ─────────────────────────────────────────────────────── */
-.formulario {
-  width: 720px;
-  margin: 0 auto;
-}
-
-.grupo {
-  border: 1px solid var(--linea);
-  border-radius: var(--radio);
-  padding: 26px;
-  margin-bottom: 26px;
-  background-color: var(--blanco);
-}
-
-.grupo-titulo {
-  font-family: var(--fuente-titulo);
-  font-weight: 700;
-  color: var(--verde);
-  padding: 0 8px;
-  font-size: 19px;
-}
-
-.grupo-opciones {
-  border: none;
-  padding: 14px 0 0;
-  margin-bottom: 0;
-}
-
-.campo { margin-bottom: 18px; }
-
-.campo-etiqueta {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.campo-entrada {
-  width: 100%;
-  padding: 11px 15px;
-  border: 1px solid var(--linea);
-  border-radius: var(--radio);
-  font-size: 17px;
-  font-family: inherit;
-  background-color: var(--crema);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.campo-entrada:focus {
-  outline: none;
-  border-color: var(--terracota);
-  box-shadow: 0 0 0 3px rgba(181, 100, 60, 0.18);
-}
-
-.campo-ayuda {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-  color: var(--suave);
-}
-
-.opcion {
-  margin-bottom: 9px;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.opcion-marca {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--terracota);
-  cursor: pointer;
-}
-
-.opcion-etiqueta { font-size: 16px; cursor: pointer; }
-
-.fila-botones {
-  display: flex;
-  gap: 14px;
-  justify-content: flex-end;
-  margin-bottom: 0;
-}
-
-
-/* ─── BOTONES ────────────────────────────────────────────────────────── */
-.boton {
-  display: inline-block;
-  padding: 13px 28px;
-  border: none;
-  border-radius: var(--radio);
-  font-family: inherit;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease;
-}
-
-.boton-principal {
-  background-color: var(--terracota);
-  color: var(--blanco);
-}
-
-.boton-principal:hover {
-  background-color: var(--terracota-os);
-  transform: translateY(-2px);
-}
-
-.boton-secundario {
-  background-color: var(--crema-alt);
-  color: var(--tinta);
-}
-
-.boton-secundario:hover { background-color: var(--linea); }
-
-.boton:focus {
-  outline: 2px solid var(--verde);
-  outline-offset: 2px;
-}
-
-
-/* ─── PIE ────────────────────────────────────────────────────────────── */
-.pie {
-  background-color: var(--verde);
-  color: var(--blanco);
-  padding: 70px 30px 26px;
-  margin-top: 80px;
-}
-
-.pie-columnas {
-  width: 1180px;
-  margin: 0 auto;
-  display: flex;
-  gap: 44px;
-  justify-content: space-between;
-}
-
-.pie-bloque { width: 340px; }
-
-.pie-titulo {
-  color: var(--blanco);
-  font-size: 19px;
-  margin-bottom: 10px;
-}
-
-.pie-texto,
-.pie-datos {
-  font-size: 15px;
-  font-style: normal;
-  opacity: 0.88;
-  line-height: 1.85;
-}
-
-.pie-enlace {
-  color: var(--blanco);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.pie-enlace:hover { border-bottom-color: var(--blanco); }
-
-.pie-creditos {
-  width: 1180px;
-  margin: 44px auto 0;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.72;
-  margin-bottom: 0;
 }

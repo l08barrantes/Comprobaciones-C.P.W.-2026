@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Liam Barrantes Calvo">
+  <meta name="author" content="Escriba aquí su nombre completo">
   <meta name="description" content="Casa Tomillo: escuela de cocina con talleres presenciales en San José.">
   <meta name="keywords" content="cocina, talleres, escuela, gastronomía, Costa Rica">
-  
+
   <title>Inicio | Casa Tomillo</title>
 
   <link rel="icon" href="recursos/favicon.png" type="image/png">
@@ -31,8 +31,24 @@
       <span class="marca-texto">Casa Tomillo</span>
     </a>
 
+    <input type="checkbox" id="menu-interruptor" class="menu-interruptor">
+
+    <label for="menu-interruptor" class="boton-menu" aria-label="Abrir menú">
+      <svg class="boton-menu-icono icono-abrir" width="26" height="26" viewBox="0 0 26 26"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="3" y1="6" x2="23" y2="6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="3" y1="13" x2="23" y2="13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="3" y1="20" x2="23" y2="20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <svg class="boton-menu-icono icono-cerrar" width="26" height="26" viewBox="0 0 26 26"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="4" y1="4" x2="22" y2="22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="22" y1="4" x2="4" y2="22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </label>
+
     <nav class="navegacion" aria-label="Navegación principal">
-      <ul class="menu">
+      <ul class="menu" id="menu-principal">
         <li><a href="index.html" class="menu-enlace activo">Inicio</a></li>
         <li><a href="cursos.html" class="menu-enlace">Cursos</a></li>
         <li><a href="contacto.html" class="menu-enlace">Contacto</a></li>
